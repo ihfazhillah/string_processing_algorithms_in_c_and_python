@@ -85,9 +85,9 @@ class KMP(object):
 
 
 if "__main__"==__name__:
-        kmp=KMP("big.txt","ghost")
+        #kmp=KMP("big.txt","ghost")
         kmp=KMP("big.txt","herself")
-        kmp=KMP("big.txt","independence")
+        #kmp=KMP("big.txt","independence")
 
         
     
