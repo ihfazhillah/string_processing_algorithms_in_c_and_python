@@ -48,6 +48,6 @@ By following those steps, you'll install the application development environment
 5. You can modify the input text and the input pattern as well in the source code
   
 ### Future features
-
-1. Compare time performance between Python code and C code
-2. Use Cython modules to improve Python code
+1. Import argparse modules to python code
+2. Compare performance time between Python code and C code
+3. Use Cython modules to improve Python code
