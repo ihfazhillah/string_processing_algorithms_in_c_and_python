@@ -44,6 +44,10 @@ By following those steps, you'll install the application development environment
   (venv) $ python kmp.py
   (venv) $ python boyermoore.py
   ```
-  
+
 5. You can modify the input text and the input pattern as well in the source code
   
+### Future features
+
+1. Compare time performance between Python code and C code
+2. Use Cython modules to improve Python code
