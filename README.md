@@ -45,6 +45,7 @@ By following those steps, you'll install the application development environment
   (venv) $ python boyermoore.py
   (venv) $ python ahocorasick_single_pattern-match.py
   (venv) $ python ahocorasick_multiple_match.py
+  (venv) $ python shiftor.py
   ```
 
 5. You can modify the input text and the input pattern as well in the source code

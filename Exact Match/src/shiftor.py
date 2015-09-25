@@ -1,0 +1,55 @@
+'''
+Created on 18/09/2015
+
+@author: raul
+'''
+
+
+class ShiftOR(object):
+    
+    def shiftor(self,text_file,pattern,alf):
+        cm=self.char_mask(pattern,alf)
+        m=len(pattern)
+        occ=[]
+        s=int("1"*m)
+        r=~1
+        text_file1=open(text_file)
+        for text in text_file1:
+            text=text.strip("\n")
+            for i in range(len(text)):
+                letter=text[i]
+                r = r | cm[letter]
+                r = r<<1
+                s= (s<<1) | cm[letter]
+                if 0==(r & (1<<m)):  
+                    occ.append(i)         
+                
+                
+        print len(occ)
+        text_file1.close()
+        return occ
+        
+    
+    def char_mask(self,pattern,alf):
+        c={}
+        for a in alf:
+            c[a]=~0
+        for i in range(len(pattern)):
+            letter=pattern[i]
+            c[letter] &=~(1<<i)
+        return c   
+    
+    
+if "__main__"==__name__:
+    alf=[]
+    for i in range(32,127):
+        alf.append(chr(i))
+    alf.append("\n")
+    alf.append("\r")
+    alf.append("\t")
+    alf.append("\n\r")
+    shor=ShiftOR()
+    shor.shiftor("big.txt","herself",alf)
+    shor.shiftor("big.txt","independence",alf)
+    shor.shiftor("big.txt","ghost",alf)
+    shor.shiftor("big.txt","yourself",alf)
