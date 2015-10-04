@@ -46,6 +46,7 @@ By following those steps, you'll install the application development environment
   (venv) $ python ahocorasick_single_pattern-match.py
   (venv) $ python shiftor.py
   (venv) $ python sellers.py
+  (venv) $ python ukkonen.py
   (venv) $ python wumanber.py
   ```
 
