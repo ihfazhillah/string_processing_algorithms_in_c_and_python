@@ -45,12 +45,8 @@ class AhoCorasick(object):
 
 if "__main__"==__name__:
     alf=[]
-    for i in range(32,127):
-        alf.append(chr(i))
-    alf.append("\n")
-    alf.append("\r")
-    alf.append("\t")
-    alf.append("\n\r")
+    for x in range(256):
+        alf.append(chr(x))
     ac=AhoCorasick()
     ac.ac("big.txt","herself",alf)
     ac.ac("big.txt","ghost",alf)

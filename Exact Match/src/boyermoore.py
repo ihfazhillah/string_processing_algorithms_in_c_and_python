@@ -87,13 +87,10 @@ class BoyerMoore(object):
 if "__main__"==__name__:
         bm=BoyerMoore()
         alf=[]
-        for i in range(32,127):
-            alf.append(chr(i))
-        alf.append("\n")
-        alf.append("\r")
-        alf.append("\t")
-        alf.append("\n\r")
+        for x in range(256):
+            alf.append(chr(x))
+
         bm.boyermoore("big.txt","herself",alf)
-        #bm.boyermoore("big.txt","ghost",alf)
-        #bm.boyermoore("big.txt","independence",alf)
+        bm.boyermoore("big.txt","ghost",alf)
+        bm.boyermoore("big.txt","independence",alf)
         
