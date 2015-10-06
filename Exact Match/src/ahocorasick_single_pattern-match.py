@@ -32,7 +32,6 @@ class AhoCorasick(object):
         occ=[]
         text_file1=open(text_file)
         for text in text_file1:
-            text=text.strip("\n")
             n=len(text)
             for i in range(n):
                 cur=m[(cur,text[i])]
