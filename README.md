@@ -41,6 +41,7 @@ By following those steps, you'll install the application development environment
 4. Walk through the folders and test if everything runs well:
 
   ```bash
+  (venv) $ python bruteForce.py
   (venv) $ python kmp.py
   (venv) $ python boyermoore.py
   (venv) $ python ahocorasick_single_pattern-match.py
