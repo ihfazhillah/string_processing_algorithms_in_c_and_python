@@ -13,7 +13,6 @@ class KMP(object):
     
     def kmp(self,text_file,pattern):
         occ=[]
-        log=open("log.txt","w")
         next_kmp=self.kmpnext(pattern)
         text_file1=open(text_file)
         for text in text_file1:
@@ -28,12 +27,9 @@ class KMP(object):
                     j+=1
                     if j==m:
                         occ.append(i-(j - 1))
-                        log.write("%s\n%d\n" %(text,len(occ)))
-                        log.flush()
                         j=0      
          
-                    
-        log.close()
+        text_file1.close()
         print "%s - %d"%(pattern,len(occ))
         return occ
     
