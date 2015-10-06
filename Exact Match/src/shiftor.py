@@ -11,17 +11,15 @@ class ShiftOR(object):
         cm=self.char_mask(pattern,alf)
         m=len(pattern)
         occ=[]
-        s=int("1"*m)
-        r=~1
+        msb=1<<(m-1)
+        s=[(1<<m)-1]
         text_file1=open(text_file)
         for text in text_file1:
             text=text.strip("\n")
             for i in range(len(text)):
                 letter=text[i]
-                r = r | cm[letter]
-                r = r<<1
                 s= (s<<1) | cm[letter]
-                if 0==(r & (1<<m)):  
+                if ((s[0] & ((1<<m)-1)))<msb:  
                     occ.append(i)         
                 
                 
