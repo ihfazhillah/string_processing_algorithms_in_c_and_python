@@ -1,6 +1,10 @@
 #include <iostream>
 #include <string>
 
+// TODO:
+// Read text and pattern from command line.
+// Output all indexes instead of true or false.
+
 using namespace std;
 
 string text = "opaoaaaopa";
@@ -24,7 +28,7 @@ void createPrefix() {
     }
 }
 
-bool kmpFind() {
+bool kmp() {
     int i = 0;
     int j = 0;
     while (i < n) {
@@ -40,6 +44,6 @@ bool kmpFind() {
 
 int main() {
     createPrefix();
-    std::cout << kmpFind() << std::endl;
+    std::cout << kmp() << std::endl;
 }
 
