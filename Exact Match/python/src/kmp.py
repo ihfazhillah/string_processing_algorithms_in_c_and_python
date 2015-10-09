@@ -9,8 +9,8 @@ class KMP(object):
 
     def __init__(self,text_file,pattern):
         self.kmp(text_file,pattern)
-        
-    
+
+
     def kmp(self,text_file,pattern):
         occ=[]
         next_kmp=self.kmpnext(pattern)
@@ -27,26 +27,26 @@ class KMP(object):
                     j+=1
                     if j==m:
                         occ.append(i-(j - 1))
-                        j=0      
-         
+                        j=0
+
         text_file1.close()
         print "%s - %d"%(pattern,len(occ))
         return occ
-    
+
     def proper_suffix(self,pattern):
         ps_return=[]
         m=len(pattern)
         for i in range(m-1):
             ps_return.append(pattern[i+1:])
         return ps_return
-        
+
     def proper_prefix(self,pattern):
         pp_return=[]
         m=len(pattern)
         for i in range(m-1):
             pp_return.append(pattern[:i+1])
         return pp_return
-    
+
     def kmpnext(self,pattern):
         m=len(pattern)
         kmpnext=-np.ones(m,dtype=int)
@@ -56,7 +56,7 @@ class KMP(object):
             pf=self.proper_prefix(pattern[:i])
             if not ps and not pf:
                 kmpnext[k]=0
-                
+
             longest_word=""
             found=False
             flag=False
@@ -72,18 +72,18 @@ class KMP(object):
                             pass
                         if not found and not flag:
                             found=True
-                        
+
             if found:
                 kmpnext[k]=len(longest_word)
-            k+=1     
+            k+=1
         return kmpnext
-        
+
 
 
 if "__main__"==__name__:
-        #kmp=KMP("big.txt","ghost")
+        kmp=KMP("big.txt","ghost")
         kmp=KMP("big.txt","herself")
-        #kmp=KMP("big.txt","independence")
+        kmp=KMP("big.txt","independence")
 
-        
-    
+
+
