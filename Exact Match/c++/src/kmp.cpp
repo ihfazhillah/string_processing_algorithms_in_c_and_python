@@ -35,7 +35,6 @@ void createPrefix(string pat) {
 
     // Setting M
     m = pat.size();
-    //printf("Pattern size is: %d\n", m);
     pre.resize(m);
     pre[0] = -1;
 
@@ -45,16 +44,18 @@ void createPrefix(string pat) {
         }
         i++;
         j++;
+        //printf("Assigning %d to pre[%d].", j, i);
         pre[i] = j;
     }
 }
 
-int kmp(string pat, string text) {
+int kmp(string pat, string line) {
     int i = 0;
     int j = 0;
     int matches = 0;
     while (i < n) {
-        while (j >= 0 && text[i] != pat[j]) {
+        //printf("Pattern size is: %d, %d\n", i, j);
+        while (j >= 0 && j <= m && line[i] != pat[j]) {
             j = pre[j];
         }
         i++;
@@ -69,13 +70,14 @@ int kmpInFile(string pat, string fileName) {
 
     ifstream infile;
     infile.open(fileName);
-    vector<string> lines;
 
     int result = 0;
+    int lineNr = 0;
     for (string line; getline(infile, line);) {
-        lines.push_back(line);
+        lineNr++;
         // Setting N
         n = line.size();
+        //printf("Line number %d has size %d.\n", lineNr, n);
         result += kmp(pat, line);
     }
     return result;
