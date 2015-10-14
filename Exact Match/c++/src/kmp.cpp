@@ -1,7 +1,7 @@
 /**
  * Example of usage:
  * g++ kmp.cpp -o kmp.out
- * ./kmp.out -t big.txt -p herself
+ * ./kmp.out herself big.txt [big2.txt big3.txt ...]
  */
 
 #include <iostream>
@@ -16,18 +16,6 @@ string pat = "";
 int n = -1;
 int m = -1;
 vector<int> pre;
-
-char* getCmdOption(char ** begin, char ** end, const string & option) {
-    char ** itr = find(begin, end, option);
-    if (itr != end && ++itr != end) {
-        return *itr;
-    }
-    return 0;
-}
-
-bool cmdOptionExists(char** begin, char** end, const string & option) {
-    return find(begin, end, option) != end;
-}
 
 void createPrefix(string pat) {
     int i = 0;
@@ -66,8 +54,6 @@ int kmp(string pat, string line) {
 }
 
 int kmpInFile(string pat, string fileName) {
-    createPrefix(pat);
-
     ifstream infile;
     infile.open(fileName);
 
@@ -83,14 +69,21 @@ int kmpInFile(string pat, string fileName) {
     return result;
 }
 
-int main(int argc, char * argv[]) {
-    char * text_filename = getCmdOption(argv, argv + argc, "-t");
-    char * pattern = getCmdOption(argv, argv + argc, "-p");
+int main(int argc, char* argv[]) {
 
-    if (text_filename && pattern) {
-        //printf("Pattern is: %s\n", pattern.c_str());
-        cout << kmpInFile(pattern, text_filename) << "\n";
+    char* pattern = argv[1];
+    createPrefix(pattern);
+
+    int result = 0;
+    for (int i = 2; i < argc; i++) {
+        char* text_filename = argv[i];
+        if (text_filename && pattern) {
+            //printf("Pattern is: %s\n", pattern.c_str());
+            result += kmpInFile(pattern, text_filename);
+        }
     }
+    cout << result << "\n";
+
     return 0;
 }
 
