@@ -6,6 +6,6 @@ import numpy
 setup(
   cmdclass = {'build_ext': build_ext},
   ext_modules = [
-    Extension("tshearch_compiled", ["tshearch.pyx"],include_dirs = [numpy.get_include()]),
+    Extension("tshearch_compiled", ["tshearch.pyx"],include_dirs = [numpy.get_include(),"."]),
   ]
 )
