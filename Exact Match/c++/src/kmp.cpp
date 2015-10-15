@@ -55,7 +55,7 @@ int kmp(string pat, string line) {
 
 int kmpInFile(string pat, string fileName) {
     ifstream infile;
-    infile.open(fileName);
+    infile.open(fileName.c_str());
 
     int result = 0;
     int lineNr = 0;
