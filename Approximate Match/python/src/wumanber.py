@@ -50,6 +50,6 @@ if "__main__"==__name__:
         
     wm=WuMamber()
     wm.wumamber("big.txt","independence",alf,2)
-    wm.wumamber("big.txt","herself",alf,2)
+    wm.wumamber("big.txt","herself",alf,1)
     wm.wumamber("big.txt","ghost",alf,2)
     

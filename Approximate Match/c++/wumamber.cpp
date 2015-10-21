@@ -9,7 +9,7 @@
 #include <fstream>
 #include <vector>
 #include <map>
-
+#include <cstdlib>
 using namespace std;
 
 map<char, int> charMaskMap;
